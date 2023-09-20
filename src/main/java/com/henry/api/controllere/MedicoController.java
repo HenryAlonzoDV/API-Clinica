@@ -1,5 +1,6 @@
 package com.henry.api.controllere;
 
+import com.henry.api.direccion.DatosDireccion;
 import com.henry.api.medico.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -7,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -21,8 +25,15 @@ public class MedicoController {
 
     // @RequestBody para indicar "parametro" recibe el BODY del POST (JSON) @VALID inidca que debe aplicar las validaciones
     @PostMapping
-    public void registrarMedico(@RequestBody @Valid DatosRegistroMedico datosRegistroMedico){
-        medicoRepositoy.save(new Medico(datosRegistroMedico));
+    public ResponseEntity<DatosRespuestaMedico> registrarMedico(@RequestBody @Valid DatosRegistroMedico datosRegistroMedico,
+                                          UriComponentsBuilder uriComponentsBuilder){
+        Medico medico = medicoRepositoy.save(new Medico(datosRegistroMedico));
+        DatosRespuestaMedico datosRespuestaMedico = new DatosRespuestaMedico(medico.getId(), medico.getNombre(),
+                medico.getEmail(), medico.getTelefono(), medico.getEspecialidad().toString(),
+                new DatosDireccion(medico.getDireccion().getCalle(), medico.getDireccion().getDistrito(),
+                        medico.getDireccion().getCiudad(), medico.getDireccion().getNumero(), medico.getDireccion().getComplemento()));
+        URI url = uriComponentsBuilder.path("/medicos/{id}").buildAndExpand(medico.getId()).toUri();    // metodo CREATED necesita retornar una URI
+        return ResponseEntity.created(url).body(datosRespuestaMedico);    //retorna 201 CREATED + toda la informacion del medico + URL
     }
 
     /*
@@ -34,25 +45,31 @@ public class MedicoController {
     */
 
     //se creo un RECORD "DatosListadoMedico" para indicar solos los campos que queremos mostrar con el metodo GET
+    // PAGE para mostrar los datos administrados por paginacion
     @GetMapping
-    public Page<DatosListadoMedico> listadoMedicos (@PageableDefault(size = 10, sort = "nombre") Pageable pageable){ // PAGEABLEDEFAULT ajustamos los parametros a nuestras reglas de negocio
-       // return medicoRepositoy.findAll(pageable).map(DatosListadoMedico::new);
-        return medicoRepositoy.findByActivoTrue(pageable).map(DatosListadoMedico::new); // MAP RECORRE y CREA un nuevo listado de medico solo con los parametros pasados "DatosListadoMedico"
+    public ResponseEntity<Page<DatosListadoMedico>> listadoMedicos (@PageableDefault(size = 10) Pageable pageable){ // PAGEABLEDEFAULT ajustamos los parametros a nuestras reglas de negocio
+       // return medicoRepositoy.findAll(pageable).map(DatosListadoMedico::new); //MOSTRAR todos los medicos
+        return ResponseEntity.ok(medicoRepositoy.findByActivoTrue(pageable).map(DatosListadoMedico::new)) ; // MAP RECORRE y CREA un nuevo listado de medico solo con los parametros pasados "DatosListadoMedico" + filtrados por los ACTIVOS
     }
 
     @PutMapping
     @Transactional // inicia y luego liberar la transaccion cuando termine el metodo y haga un commit
-    public void actualizarMedico (@RequestBody @Valid DatosActualizarMedico datosActualizarMedico){  //se crea un RECORD para indicar solo los parametros que se pueden modificar
+    public ResponseEntity actualizarMedico (@RequestBody @Valid DatosActualizarMedico datosActualizarMedico){  //se crea un RECORD para indicar solo los parametros que se pueden modificar
         Medico medico = medicoRepositoy.getReferenceById(datosActualizarMedico.id());
         medico.actualizarDatos(datosActualizarMedico);
+        return ResponseEntity.ok(new DatosRespuestaMedico(medico.getId(), medico.getNombre(),            //retorna 200 OK + toda la informacion del medico
+                medico.getEmail(), medico.getTelefono(), medico.getEspecialidad().toString(),
+                new DatosDireccion(medico.getDireccion().getCalle(), medico.getDireccion().getDistrito(),
+                        medico.getDireccion().getCiudad(), medico.getDireccion().getNumero(), medico.getDireccion().getComplemento())));
     }
 
     // DELETE solo en la LOGICA
     @DeleteMapping("/{id}")
     @Transactional
-    public void eliminarMedico (@PathVariable Long id) {
+    public ResponseEntity eliminarMedico (@PathVariable Long id) {
         Medico medico = medicoRepositoy.getReferenceById(id);
         medico.desactivarMedico();
+        return ResponseEntity.noContent().build();  //RESPONSEENTITY spara devolver los codigos rest (200, 201, 400, 404, etc)
     }
 
     /*  // DELETE en la base de datos
@@ -60,5 +77,20 @@ public class MedicoController {
         Medico medico = medicoRepositoy.getReferenceById(id);
         medicoRepositoy.delete(medico);
     }
-*/
+    */
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DatosRespuestaMedico> retornaDatosMedico (@PathVariable Long id) {
+        Medico medico = medicoRepositoy.getReferenceById(id);
+        var datrosMedicos = new DatosRespuestaMedico(medico.getId(), medico.getNombre(),
+                medico.getEmail(), medico.getTelefono(), medico.getEspecialidad().toString(),
+                new DatosDireccion(medico.getDireccion().getCalle(), medico.getDireccion().getDistrito(),
+                        medico.getDireccion().getCiudad(), medico.getDireccion().getNumero(), medico.getDireccion().getComplemento()));
+        return ResponseEntity.ok(datrosMedicos);
+    }
+
+
+
+
+
 }
