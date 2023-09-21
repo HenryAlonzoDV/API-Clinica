@@ -1,6 +1,6 @@
 package com.henry.api.controllere;
 
-import com.henry.api.domain.paciente.*;
+
 import com.henry.api.paciente.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
