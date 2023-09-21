@@ -1,0 +1,182 @@
+{
+        "nombre": "Jorge Perez",
+        "email": "jperez@gmail.com",
+        "telefono": "1153448979",
+        "documentoIdentidad": "32195428",
+        "direccion": {
+            "calle": "Calle Esmeralda",
+            "distrito": "Microcentro",
+            "ciudad": "Caba",
+            "numero": "14",
+            "complemento": "M"
+        }
+    },
+    {
+        "nombre": "Ana Lopez",
+        "email": "alopez@gmail.com",
+        "telefono": "1153448980",
+        "documentoIdentidad": "32195429",
+        "direccion": {
+            "calle": "Calle Lavalle",
+            "distrito": "Retiro",
+            "ciudad": "Caba",
+            "numero": "9",
+            "complemento": "N"
+        }
+    },
+    {
+        "nombre": "Maria Rodriguez",
+        "email": "mrodriguez@gmail.com",
+        "telefono": "1153448981",
+        "documentoIdentidad": "32195430",
+        "direccion": {
+            "calle": "Calle Tucuman",
+            "distrito": "San Nicolas",
+            "ciudad": "Caba",
+            "numero": "21",
+            "complemento": "O"
+        }
+    },
+    {
+        "nombre": "Carlos Jimenez",
+        "email": "cjimenez@gmail.com",
+        "telefono": "1153448982",
+        "documentoIdentidad": "32195431",
+        "direccion": {
+            "calle": "Calle Lavalleja",
+            "distrito": "San Cristobal",
+            "ciudad": "Caba",
+            "numero": "11",
+            "complemento": "P"
+        }
+    },
+    {
+        "nombre": "Sofia Ramirez",
+        "email": "sramirez@gmail.com",
+        "telefono": "1153448983",
+        "documentoIdentidad": "32195432",
+        "direccion": {
+            "calle": "Calle Reconquista",
+            "distrito": "Retiro",
+            "ciudad": "Caba",
+            "numero": "6",
+            "complemento": "Q"
+        }
+    },
+    {
+        "nombre": "Luisa Martinez",
+        "email": "lmartinez@gmail.com",
+        "telefono": "1153448984",
+        "documentoIdentidad": "32195433",
+        "direccion": {
+            "calle": "Calle Esmeralda",
+            "distrito": "Microcentro",
+            "ciudad": "Caba",
+            "numero": "14",
+            "complemento": "R"
+        }
+    },
+    {
+        "nombre": "Miguel Fernandez",
+        "email": "mfernandez@gmail.com",
+        "telefono": "1153448985",
+        "documentoIdentidad": "32195434",
+        "direccion": {
+            "calle": "Calle Lavalle",
+            "distrito": "Retiro",
+            "ciudad": "Caba",
+            "numero": "9",
+            "complemento": "S"
+        }
+    },
+    {
+        "nombre": "Elena Torres",
+        "email": "etorres@gmail.com",
+        "telefono": "1153448986",
+        "documentoIdentidad": "32195435",
+        "direccion": {
+            "calle": "Calle Tucuman",
+            "distrito": "San Nicolas",
+            "ciudad": "Caba",
+            "numero": "21",
+            "complemento": "T"
+        }
+    },
+    {
+        "nombre": "David Sanchez",
+        "email": "dsanchez@gmail.com",
+        "telefono": "1153448987",
+        "documentoIdentidad": "32195436",
+        "direccion": {
+            "calle": "Calle Lavalleja",
+            "distrito": "San Cristobal",
+            "ciudad": "Caba",
+            "numero": "11",
+            "complemento": "U"
+        }
+    },
+    {
+        "nombre": "Laura Gonzalez",
+        "email": "lgonzalez@gmail.com",
+        "telefono": "1153448988",
+        "documentoIdentidad": "32195437",
+        "direccion": {
+            "calle": "Calle Reconquista",
+            "distrito": "Retiro",
+            "ciudad": "Caba",
+            "numero": "6",
+            "complemento": "V"
+        }
+    },
+    {
+        "nombre": "Raul Ramirez",
+        "email": "rramirez@gmail.com",
+        "telefono": "1153448989",
+        "documentoIdentidad": "32195438",
+        "direccion": {
+            "calle": "Calle Esmeralda",
+            "distrito": "Microcentro",
+            "ciudad": "Caba",
+            "numero": "14",
+            "complemento": "W"
+        }
+    },
+    {
+        "nombre": "Carla Jimenez",
+        "email": "cjjimenez@gmail.com",
+        "telefono": "1153448990",
+        "documentoIdentidad": "32195439",
+        "direccion": {
+            "calle": "Calle Lavalle",
+            "distrito": "Retiro",
+            "ciudad": "Caba",
+            "numero": "9",
+            "complemento": "X"
+        }
+    },
+    {
+        "nombre": "Hector Perez",
+        "email": "hperez@gmail.com",
+        "telefono": "1153448991",
+        "documentoIdentidad": "32195440",
+        "direccion": {
+            "calle": "Calle Tucuman",
+            "distrito": "San Nicolas",
+            "ciudad": "Caba",
+            "numero": "21",
+            "complemento": "Y"
+        }
+    },
+    {
+        "nombre": "Elena Martinez",
+        "email": "emartinez@gmail.com",
+        "telefono": "1153448992",
+        "documentoIdentidad": "32195441",
+        "direccion": {
+            "calle": "Calle Lavalleja",
+            "distrito": "San Cristobal",
+            "ciudad": "Caba",
+            "numero": "11",
+            "complemento": "Z"
+        }
+    }
