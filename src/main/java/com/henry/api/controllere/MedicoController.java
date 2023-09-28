@@ -1,7 +1,7 @@
 package com.henry.api.controllere;
 
-import com.henry.api.direccion.DatosDireccion;
-import com.henry.api.medico.*;
+import com.henry.api.domain.direccion.DatosDireccion;
+import com.henry.api.domain.medico.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
 
 @RestController
 @RequestMapping("/medicos")

@@ -1,7 +1,7 @@
 package com.henry.api.controllere;
 
 
-import com.henry.api.paciente.*;
+import com.henry.api.domain.paciente.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

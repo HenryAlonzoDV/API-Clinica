@@ -1,7 +1,7 @@
-package com.henry.api.paciente;
+package com.henry.api.domain.paciente;
 
 
-import com.henry.api.direccion.Direccion;
+import com.henry.api.domain.direccion.Direccion;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

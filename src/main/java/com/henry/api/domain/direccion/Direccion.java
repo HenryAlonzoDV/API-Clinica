@@ -1,4 +1,4 @@
-package com.henry.api.direccion;
+package com.henry.api.domain.direccion;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

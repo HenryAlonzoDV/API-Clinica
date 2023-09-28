@@ -1,6 +1,6 @@
-package com.henry.api.paciente;
+package com.henry.api.domain.paciente;
 
-import com.henry.api.direccion.Direccion;
+import com.henry.api.domain.direccion.Direccion;
 
 public record DatosDetalladoPaciente(Long id, String nombre, String email, String telefono, String documentoIdentidad, Direccion direccion) {
     public DatosDetalladoPaciente(Paciente paciente) {

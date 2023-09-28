@@ -1,4 +1,4 @@
-package com.henry.api.medico;
+package com.henry.api.domain.medico;
 
 public enum Especialidad {
     ORTOPEDIA,

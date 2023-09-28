@@ -1,6 +1,6 @@
-package com.henry.api.paciente;
+package com.henry.api.domain.paciente;
 
-import com.henry.api.direccion.DatosDireccion;
+import com.henry.api.domain.direccion.DatosDireccion;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

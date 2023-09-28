@@ -1,4 +1,4 @@
-package com.henry.api.paciente;
+package com.henry.api.domain.paciente;
 
 public record DatosListaPaciente(Long id, String nombre, String email, String documentoIdentidad) {
     public DatosListaPaciente(Paciente paciente) {
